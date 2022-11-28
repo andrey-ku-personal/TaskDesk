@@ -35,7 +35,7 @@ public class LoginController : BaseEndpoint
     {
         return new ChallengeResult(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties
         {
-            RedirectUri = Url.Action("ChallengeGoogle", "Login") //"http://localhost:5086/Token/Google/Challenge"
+            RedirectUri = Url.Action("ChallengeGoogle", "Login")
         });
     }
 
@@ -62,14 +62,13 @@ public class LoginController : BaseEndpoint
 
         try
         {
-
-            await _mediator.Send(new GetCommand { UserIdOrEmail = email });
+            await _mediator.Send(new GetRequest { UserIdOrEmail = email });
         }
         catch (NotFoundException)
         {
-            await _mediator.Send(new CreateCommand()
+            await _mediator.Send(new CreateRequest()
             {
-                Email = authenticateResult.Principal.FindFirst(ClaimTypes.Email)!.Value,
+                Email = email,
                 FirstName = authenticateResult.Principal.FindFirst(ClaimTypes.GivenName)!.Value,
                 LastName = authenticateResult.Principal.FindFirst(ClaimTypes.Surname)!.Value
             });

@@ -2,10 +2,10 @@
 
 namespace TaskDesk.Identity.Handlers.User;
 
-public class BaseCreateCommandValidator<TCommand> : AbstractValidator<TCommand>
-    where TCommand : BaseCreateCommand
+public class BaseCreateRequestValidator<TRequest> : AbstractValidator<TRequest>
+    where TRequest : BaseCreateRequest
 {
-    public BaseCreateCommandValidator()
+    public BaseCreateRequestValidator()
     {
         RuleFor(x => x.Id).Equal(0);
         RuleFor(x => x.FirstName).NotNull().NotEmpty().MaximumLength(126);

@@ -4,16 +4,16 @@ using TaskDesk.Identity.Handlers.User.Models;
 
 namespace TaskDesk.Identity.Handlers.Google;
 
-public class CreateCommandProfiler : Profile
+public class CreateRequestProfiler : Profile
 {
-    public CreateCommandProfiler()
+    public CreateRequestProfiler()
     {
-        CreateMap<CreateCommand, Domain.Entities.User>()
-            .ForMember(dest => dest.UserId, opt => opt.MapFrom<UserNameResolver<CreateCommand>>())
+        CreateMap<CreateRequest, Domain.Entities.User>()
+            .ForMember(dest => dest.UserId, opt => opt.MapFrom<UserNameResolver<CreateRequest>>())
             .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => "$2a$10$"))
             .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => DateTime.UtcNow))
             .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => DateTime.UtcNow));
 
-        CreateMap<CreateCommand, GetCommand>();
+        CreateMap<CreateRequest, GetRequest>();
     }
 }

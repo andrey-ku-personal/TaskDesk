@@ -73,7 +73,7 @@ public class UserStore : IUserPasswordStore<UserModel>
     {
         try
         {
-            return await _mediator.Send(new GetCommand { UserIdOrEmail = userId }, cancellationToken);
+            return await _mediator.Send(new GetRequest { UserIdOrEmail = userId }, cancellationToken);
         }
         catch (NotFoundException)
         {
@@ -191,11 +191,12 @@ public class UserStore : IUserPasswordStore<UserModel>
         return !string.IsNullOrWhiteSpace(entity.PasswordHash);
     }
 
-    public Task SetPasswordHashAsync(UserModel user, string passwordHash, CancellationToken cancellationToken)
+    public Task SetPasswordHashAsync(UserModel user, string? passwordHash, CancellationToken cancellationToken)
     {
         if (user == null) throw new ArgumentNullException(nameof(user));
+        if (string.IsNullOrWhiteSpace(passwordHash)) throw new ArgumentNullException(nameof(user));
 
-        return SetPasswordHashInternalAsync(user, passwordHash, cancellationToken);
+        return SetPasswordHashInternalAsync(user, passwordHash!, cancellationToken);
     }
 
     private async Task SetPasswordHashInternalAsync(UserModel user, string passwordHash, CancellationToken cancellationToken)

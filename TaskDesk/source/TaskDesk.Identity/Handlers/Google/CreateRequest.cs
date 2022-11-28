@@ -2,6 +2,6 @@
 
 namespace TaskDesk.Identity.Handlers.Google;
 
-public class CreateCommand : BaseCreateCommand
+public class CreateRequest : BaseCreateRequest
 {
 }

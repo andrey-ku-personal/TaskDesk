@@ -3,6 +3,6 @@ using MediatR;
 
 namespace TaskDesk.Identity.Handlers.User;
 
-public class BaseCreateCommand : UserModel, IRequest<UserModel>
+public class BaseCreateRequest : UserModel, IRequest<UserModel>
 {
 }

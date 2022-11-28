@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TaskDesk.Identity.Handlers.User;
 
-public class GetHandler : IRequestHandler<GetCommand, UserModel>
+public class GetHandler : IRequestHandler<GetRequest, UserModel>
 {
     private readonly IDbContextFactory<EntitiesDbContext> _contextFactory;
     private readonly IMapper _mapper;
@@ -22,14 +22,14 @@ public class GetHandler : IRequestHandler<GetCommand, UserModel>
         _mapper = mapper;
     }
 
-    public async Task<UserModel> Handle(GetCommand command, CancellationToken cancellationToken)
+    public async Task<UserModel> Handle(GetRequest request, CancellationToken cancellationToken)
     {
         using var context = await _contextFactory.CreateDbContextAsync(cancellationToken);
 
         return await context.Users
-            .ByQuery(_mapper.Map<GetQuery>(command))
+            .ByQuery(_mapper.Map<GetQuery>(request))
             .ProjectTo<UserModel>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(cancellationToken) ??
-                throw new NotFoundException($"User/{command.Id} was not found");
+                throw new NotFoundException($"User/{request.Id} was not found");
     }
 }

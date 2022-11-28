@@ -7,7 +7,7 @@ using TaskDesk.Identity.Handlers.Google;
 
 namespace Desk.Identity.Handlers.Google;
 
-public class CreateHandler : BaseCreateHandler<CreateCommand>
+public class CreateHandler : BaseCreateHandler<CreateRequest>
 {
     public CreateHandler(
         IDbContextFactory<EntitiesDbContext> contextFactory,
