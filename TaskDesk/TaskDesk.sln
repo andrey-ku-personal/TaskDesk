@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Domain", "source\T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Migrations", "source\TaskDesk.Migrations\TaskDesk.Migrations.csproj", "{3E812965-E668-422A-AF13-23B7288CD03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Shared", "source\TaskDesk.Shared\TaskDesk.Shared.csproj", "{339C3B7E-DBA8-4818-BCC4-78D73D850190}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Shared", "source\TaskDesk.Shared\TaskDesk.Shared.csproj", "{339C3B7E-DBA8-4818-BCC4-78D73D850190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Google.Auth.API", "source\TaskDesk.Google.Auth.API\TaskDesk.Google.Auth.API.csproj", "{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Identity", "source\TaskDesk.Identity\TaskDesk.Identity.csproj", "{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{339C3B7E-DBA8-4818-BCC4-78D73D850190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{339C3B7E-DBA8-4818-BCC4-78D73D850190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{339C3B7E-DBA8-4818-BCC4-78D73D850190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +49,8 @@ Global
 		{7B3E6858-C0DD-4AFC-AF11-DCEDCC3EDD4D} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 		{3E812965-E668-422A-AF13-23B7288CD03D} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 		{339C3B7E-DBA8-4818-BCC4-78D73D850190} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
+		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
+		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A035798-578B-4D25-BC6E-9CFD07C4529E}

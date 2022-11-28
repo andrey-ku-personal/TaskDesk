@@ -16,15 +16,15 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired()
             .ValueGeneratedOnAdd();
 
-        builder.Property(x => x.UserName)
-            .HasColumnName(@"UserName")
+        builder.Property(x => x.UserId)
+            .HasColumnName(@"UserId")
             .HasColumnType("nvarchar")
             .IsRequired()
             .HasMaxLength(128);
 
         builder.HasIndex(x => x.UserName)
                .IsUnique()
-               .HasDatabaseName("UX_User_UserName");
+               .HasDatabaseName("UX_User_UserId");
 
         builder.Property(x => x.FirstName)
             .HasColumnName(@"FirstName")
@@ -72,6 +72,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired(false)
             .HasMaxLength(2048);
 
+        builder.Ignore(x => x.UserName);
         builder.Ignore(x => x.AccessFailedCount);
         builder.Ignore(x => x.ConcurrencyStamp);
         builder.Ignore(x => x.EmailConfirmed);
