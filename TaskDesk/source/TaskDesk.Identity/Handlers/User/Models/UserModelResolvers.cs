@@ -19,7 +19,7 @@ public class UserPasswordHashResolver<TSource> : IValueResolver<TSource, Domain.
         return _passwordHasher.HashPassword(source, source.Password);
     }
 }
-public class UserNameResolver<TSource> : IValueResolver<TSource, Domain.Entities.User, string>
+public class UserIdResolver<TSource> : IValueResolver<TSource, Domain.Entities.User, string>
     where TSource : UserModel
 {
     private readonly Regex _pattern = new("[*'\",_&#^@+ \\-]");

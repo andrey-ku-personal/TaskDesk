@@ -6,6 +6,9 @@ public class UserModelProfile : Profile
 {
     public UserModelProfile()
     {
-        CreateMap<UserModel, Domain.Entities.User>().ReverseMap();
+        CreateMap<UserModel, Domain.Entities.User>()
+            .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => DateTime.UtcNow));
+
+        CreateMap<Domain.Entities.User, UserModel>();
     }
 }

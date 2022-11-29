@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers;
 
 public class BaseCreateRequestProfiler : Profile
 {

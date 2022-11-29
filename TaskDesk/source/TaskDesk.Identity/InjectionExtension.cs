@@ -67,6 +67,8 @@ public static class InjectionExtension
         services.AddTransient<IUserStore<UserModel>, UserStore>();
         services.AddTransient<IUserPasswordStore<UserModel>, UserStore>();
         services.AddTransient<IPasswordHasher<UserModel>, BCryptPasswordHasher>();
+
+        services.Configure<GoogleOptions>(configuration.GetSection("Auth:Google"));
     }
 
     public static void AddIdentityDependencies(this WebApplication app)

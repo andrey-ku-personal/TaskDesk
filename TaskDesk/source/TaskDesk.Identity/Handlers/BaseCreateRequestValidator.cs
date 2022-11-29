@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers;
 
 public class BaseCreateRequestValidator<TRequest> : AbstractValidator<TRequest>
     where TRequest : BaseCreateRequest
