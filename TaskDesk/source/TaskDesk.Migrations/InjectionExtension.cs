@@ -21,12 +21,12 @@ public static class InjectionExtension
                 })
                 .BuildServiceProvider(false);
 
-        using var provider = services.BuildServiceProvider();
-        using (var scope = provider.CreateScope())
-        {
-            var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
-            migrator!.MigrateUp();
-        }
+        var provider = services.BuildServiceProvider();
+
+        using var scope = provider.CreateScope();
+
+        var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
+        migrator!.MigrateUp();
 
         return services;
     }

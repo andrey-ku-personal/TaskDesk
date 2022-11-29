@@ -22,7 +22,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired()
             .HasMaxLength(128);
 
-        builder.HasIndex(x => x.UserName)
+        builder.HasIndex(x => x.UserId)
                .IsUnique()
                .HasDatabaseName("UX_User_UserId");
 

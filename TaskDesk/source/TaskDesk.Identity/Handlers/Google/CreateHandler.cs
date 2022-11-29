@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using TaskDesk.Domain;
-using TaskDesk.Identity.Handlers.User;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Identity.Handlers.Google;
+using TaskDesk.Identity.Handlers;
 
 namespace Desk.Identity.Handlers.Google;
 

@@ -4,8 +4,9 @@ using TaskDesk.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Identity.Handlers.User.Models;
+using TaskDesk.Identity.Handlers.User;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers;
 
 public class BaseCreateHandler<TRequest> : IRequestHandler<TRequest, UserModel>
     where TRequest : BaseCreateRequest

@@ -1,6 +1,4 @@
-﻿using TaskDesk.Identity.Handlers.User;
-
-namespace TaskDesk.Identity.Handlers.Google;
+﻿namespace TaskDesk.Identity.Handlers.Google;
 
 public class CreateRequest : BaseCreateRequest
 {

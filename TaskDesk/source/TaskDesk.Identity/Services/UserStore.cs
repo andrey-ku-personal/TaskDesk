@@ -107,7 +107,7 @@ public class UserStore : IUserPasswordStore<UserModel>
             .ByQuery(_mapper.Map<GetQuery>(user))
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (entity == null) throw new NotFoundException($"User '{user.UserName}' was not found");
+        if (entity == null) throw new NotFoundException($"User '{user.UserId}' was not found");
 
         return entity.UserId;
     }
@@ -166,7 +166,7 @@ public class UserStore : IUserPasswordStore<UserModel>
             .ByQuery(_mapper.Map<GetQuery>(user))
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (entity == null) throw new NotFoundException($"User '{user.UserName}' was not found");
+        if (entity == null) throw new NotFoundException($"User '{user.UserId}' was not found");
 
         return entity.PasswordHash;
     }
@@ -186,7 +186,7 @@ public class UserStore : IUserPasswordStore<UserModel>
             .ByQuery(_mapper.Map<GetQuery>(user))
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (entity == null) throw new NotFoundException($"User '{user.UserName}' was not found");
+        if (entity == null) throw new NotFoundException($"User '{user.UserId}' was not found");
 
         return !string.IsNullOrWhiteSpace(entity.PasswordHash);
     }
@@ -207,7 +207,7 @@ public class UserStore : IUserPasswordStore<UserModel>
             .ByQuery(_mapper.Map<GetQuery>(user))
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (entity == null) throw new NotFoundException($"User '{user.UserName}' was not found");
+        if (entity == null) throw new NotFoundException($"User '{user.UserId}' was not found");
 
         entity.PasswordHash = passwordHash;
 
