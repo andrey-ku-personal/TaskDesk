@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using TaskDesk.Identity.Handlers.Account.Models;
 
 namespace TaskDesk.Identity.Handlers;
 
 public class BaseCreateRequestValidator<TRequest> : AbstractValidator<TRequest>
-    where TRequest : UserModel
+    where TRequest : BaseCreateRequest
 {
     public BaseCreateRequestValidator()
     {
