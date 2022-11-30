@@ -1,13 +1,11 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
+﻿using AutoMapper.QueryableExtensions;
 using TaskDesk.Domain;
-using TaskDesk.Identity.Handlers.User.Models;
+using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Shared.Exceptions;
 using TaskDesk.Shared.Queries;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers.Account;
 
 public class GetHandler : IRequestHandler<GetRequest, UserModel>
 {

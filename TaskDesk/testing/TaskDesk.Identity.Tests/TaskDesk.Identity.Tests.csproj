@@ -46,10 +46,6 @@
 		<ProjectReference Include="..\..\source\TaskDesk.Migrations\TaskDesk.Migrations.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Handlers\User\" />
-	</ItemGroup>
-
 	<PropertyGroup>
 		<SourceAppSettingsConfigFile>appsettings.json.template</SourceAppSettingsConfigFile>
 		<DestinationAppSettingsConfigFile>appsettings.json</DestinationAppSettingsConfigFile>

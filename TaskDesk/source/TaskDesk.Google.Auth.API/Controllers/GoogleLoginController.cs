@@ -6,7 +6,7 @@ using TaskDesk.Shared.Endpoints;
 using MediatR;
 using NSwag.Annotations;
 using TaskDesk.Shared.Extensions;
-using TaskDesk.Identity.Handlers.User;
+using TaskDesk.Identity.Handlers.Account;
 using Microsoft.Extensions.Options;
 using TaskDesk.Identity.Handlers.Google;
 using TaskDesk.Shared.Exceptions;
@@ -66,7 +66,7 @@ public class LoginController : BaseEndpoint
         }
         catch (NotFoundException)
         {
-            await _mediator.Send(new CreateRequest()
+            await _mediator.Send(new Identity.Handlers.Google.CreateRequest()
             {
                 Email = email,
                 FirstName = authenticateResult.Principal.FindFirst(ClaimTypes.GivenName)!.Value,

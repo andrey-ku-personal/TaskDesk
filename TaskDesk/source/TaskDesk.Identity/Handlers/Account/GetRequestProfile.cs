@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace TaskDesk.Identity.Handlers.User;
+﻿namespace TaskDesk.Identity.Handlers.Account;
 
 public class GetRequestProfile : Profile
 {

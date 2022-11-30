@@ -1,7 +1,6 @@
-﻿using TaskDesk.Identity.Handlers.User.Models;
-using MediatR;
+﻿using TaskDesk.Identity.Handlers.Account.Models;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers.Account;
 
 public class GetRequest : IRequest<UserModel>
 {

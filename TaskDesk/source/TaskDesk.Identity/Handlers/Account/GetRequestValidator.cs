@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers.Account;
 
 public class GetRequestValidator : AbstractValidator<GetRequest>
 {

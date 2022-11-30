@@ -1,12 +1,10 @@
-﻿using AutoMapper;
-using AutoMapper.EntityFrameworkCore;
-using MediatR;
+﻿using AutoMapper.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Domain.Entities;
-using TaskDesk.Identity.Handlers.User;
-using TaskDesk.Identity.Handlers.User.Models;
+using TaskDesk.Identity.Handlers.Account;
+using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Shared.Exceptions;
 using TaskDesk.Shared.Queries;
 

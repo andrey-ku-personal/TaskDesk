@@ -1,7 +1,7 @@
 ﻿using TaskDesk.Shared.Queries;
 using System.Linq.Expressions;
 
-namespace TaskDesk.Identity.Handlers.User;
+namespace TaskDesk.Identity.Handlers.Account;
 
 public class GetQuery : BaseQuery<Domain.Entities.User>
 {

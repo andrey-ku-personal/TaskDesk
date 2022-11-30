@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TaskDesk.Identity.Handlers.User.Models;
+namespace TaskDesk.Identity.Handlers.Account.Models;
 
 public class UserModelProfile : Profile
 {
