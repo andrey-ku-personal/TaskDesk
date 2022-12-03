@@ -3,11 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace TaskDesk.Identity.Handlers.Account;
 
-public class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
+public partial class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
 {
     public CreateRequestValidator()
     {
-        RuleFor(x => x.Id).Equal(0);
         RuleFor(x => x.Password).Must(ValidPassword).MaximumLength(256);
     }
 
@@ -31,9 +30,12 @@ public class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
         if (!password.Any(x => char.IsNumber(x)))
             return false;
 
-        if (new Regex("^[a-zA-Z0-9 ]*$").IsMatch(password))
+        if (MyRegex().IsMatch(password))
             return false;
 
         return true;
     }
+
+    [GeneratedRegex("^[a-zA-Z0-9 ]*$")]
+    private static partial Regex MyRegex();
 }

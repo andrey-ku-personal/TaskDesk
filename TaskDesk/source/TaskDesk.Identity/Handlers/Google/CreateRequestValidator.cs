@@ -6,6 +6,5 @@ public class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
 {
 	public CreateRequestValidator()
 	{
-        RuleFor(x => x.Id).Equal(0);
     }
 }

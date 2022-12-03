@@ -1,34 +1,37 @@
+using TaskDesk.Domain;
+using TaskDesk.Identity;
+using TaskDesk.Migrations;
+using TaskDesk.Shared;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+RegisterServices(builder);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+ConfigureApplication(app);
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
+static void RegisterServices(WebApplicationBuilder builder)
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    builder.Services.AddDomainDependencies(builder.Configuration);
+    builder.Services.AddMigrationsDependencies(builder.Configuration);
+    builder.Services.AddSharedDependencies();
+    builder.Services.AddSharedSerializer();
+    builder.Services.AddSharedCors();
+    builder.Services.AddIdentityDependencies(builder.Configuration);
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+}
 
-app.MapGet("/weatherforecast", () =>
+static void ConfigureApplication(WebApplication app)
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+    app.UseSharedSwagger();
+    app.UseSharedCors();
+    app.UseHttpsRedirection();
+    app.AddIdentityDependencies();
+    app.MapControllers();
 
-app.Run();
+    app.UseCookiePolicy();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    app.Run();
 }

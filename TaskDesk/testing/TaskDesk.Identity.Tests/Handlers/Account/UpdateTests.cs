@@ -14,7 +14,7 @@ public class UpdateTests
     public UpdateTests(SliceFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public async Task Can_Update_User()
+    public async Task Can_Update()
     {
         var faker = new Faker();
 
@@ -30,6 +30,28 @@ public class UpdateTests
             .Without(x => x.Password)
             .Without(x => x.UserId)
             .ShouldEqual(result);
+    }
+
+    [Fact]
+    public async Task Can_Update_Second_Time()
+    {
+        var faker = new Faker();
+
+        var createRequest = faker.FakeCreateRequest();
+        var created = await _fixture.SendAsync(createRequest);
+
+        var updateRequest = faker.FakeUpdateRequest(created);
+        var result1 = await _fixture.SendAsync(updateRequest);
+
+        updateRequest = faker.FakeUpdateRequest(result1);
+        var result2 = await _fixture.SendAsync(updateRequest);
+
+        result2.AsSource()
+            .OfLikeness<UserModel>()
+            .Without(x => x.Id)
+            .Without(x => x.Password)
+            .Without(x => x.UserId)
+            .ShouldEqual(result2);
     }
 
     [Fact]
