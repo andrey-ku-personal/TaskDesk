@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Identity", "source
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testing", "testing", "{CC2F5528-3D41-4AF9-8A1B-E75A4CC20721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Identity.Tests", "testing\TaskDesk.Identity.Tests\TaskDesk.Identity.Tests.csproj", "{7C5DA4AF-8E71-467E-8623-134F2B0DF89A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Identity.Tests", "testing\TaskDesk.Identity.Tests\TaskDesk.Identity.Tests.csproj", "{7C5DA4AF-8E71-467E-8623-134F2B0DF89A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Manager.API", "source\TaskDesk.Manager.API\TaskDesk.Manager.API.csproj", "{8AAF1D79-B36C-488E-98E1-6FCD595E7049}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{7C5DA4AF-8E71-467E-8623-134F2B0DF89A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5DA4AF-8E71-467E-8623-134F2B0DF89A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5DA4AF-8E71-467E-8623-134F2B0DF89A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAF1D79-B36C-488E-98E1-6FCD595E7049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAF1D79-B36C-488E-98E1-6FCD595E7049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAF1D79-B36C-488E-98E1-6FCD595E7049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAF1D79-B36C-488E-98E1-6FCD595E7049}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{5BBD026B-A6AD-4C4C-BEFF-5606BFD35E85} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 		{7C5DA4AF-8E71-467E-8623-134F2B0DF89A} = {CC2F5528-3D41-4AF9-8A1B-E75A4CC20721}
+		{8AAF1D79-B36C-488E-98E1-6FCD595E7049} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A035798-578B-4D25-BC6E-9CFD07C4529E}

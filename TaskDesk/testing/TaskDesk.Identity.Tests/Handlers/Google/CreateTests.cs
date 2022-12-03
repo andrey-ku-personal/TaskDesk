@@ -1,5 +1,5 @@
 ﻿using TaskDesk.Core.Functional.Tests.Fixtures;
-using TaskDesk.Identity.Handlers.User.Models;
+using TaskDesk.Identity.Handlers.Account.Models;
 
 namespace TaskDesk.Identity.Tests.Handlers.Google;
 

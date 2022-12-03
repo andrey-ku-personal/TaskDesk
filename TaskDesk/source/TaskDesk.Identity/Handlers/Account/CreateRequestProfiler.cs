@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using TaskDesk.Identity.Handlers.Account;
-using TaskDesk.Identity.Handlers.Account.Models;
+﻿using TaskDesk.Identity.Handlers.Account.Models;
 
-namespace TaskDesk.Identity.Handlers.Google;
+namespace TaskDesk.Identity.Handlers.Account;
 
 public class CreateRequestProfiler : Profile
 {
@@ -10,7 +8,7 @@ public class CreateRequestProfiler : Profile
     {
         CreateMap<CreateRequest, Domain.Entities.User>()
             .ForMember(dest => dest.UserId, opt => opt.MapFrom<UserIdResolver<CreateRequest>>())
-            .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => "$2a$10$"))
+            .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom<UserPasswordHashResolver<CreateRequest>>())
             .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => DateTime.UtcNow))
             .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => DateTime.UtcNow));
 

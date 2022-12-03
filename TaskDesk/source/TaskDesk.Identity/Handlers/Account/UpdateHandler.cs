@@ -1,19 +1,19 @@
 ﻿using AutoMapper.EntityFrameworkCore;
-using TaskDesk.Domain;
 using Microsoft.EntityFrameworkCore;
+using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers.Account.Models;
-using TaskDesk.Identity.Handlers.Account;
+using TaskDesk.Shared.Exceptions;
+using TaskDesk.Shared.Queries;
 
-namespace TaskDesk.Identity.Handlers;
+namespace TaskDesk.Identity.Handlers.Account;
 
-public class BaseCreateHandler<TRequest> : IRequestHandler<TRequest, UserModel>
-    where TRequest : BaseCreateRequest
+public class UpdateHandler : IRequestHandler<UpdateRequest, UserModel>
 {
     private readonly IDbContextFactory<EntitiesDbContext> _contextFactory;
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public BaseCreateHandler(
+    public UpdateHandler(
         IDbContextFactory<EntitiesDbContext> contextFactory,
         IMediator mediator,
         IMapper mapper)
@@ -23,18 +23,23 @@ public class BaseCreateHandler<TRequest> : IRequestHandler<TRequest, UserModel>
         _mapper = mapper;
     }
 
-    public async Task<UserModel> Handle(TRequest request, CancellationToken cancellationToken)
+    public async Task<UserModel> Handle(UpdateRequest request, CancellationToken cancellationToken)
     {
         using var context = await _contextFactory.CreateDbContextAsync(cancellationToken);
         await context.BeginTransactionAsync();
 
-        var entity = await context.Users
-                .Persist(_mapper)
-                .InsertOrUpdateAsync(request, cancellationToken);
+        var entity = context.Users
+            .ByQuery(_mapper.Map<GetQuery>(request))
+            .FirstOrDefault();
+
+        if (entity == null)
+            throw new NotFoundException($"User/{request.Id} was not found");
+
+        await context.Users
+           .Persist(_mapper)
+           .InsertOrUpdateAsync(request, cancellationToken);
 
         await context.CommitTransactionAsync();
-
-        request.Id = entity.Id;
 
         return await _mediator.Send(_mapper.Map<GetRequest>(request), cancellationToken);
     }

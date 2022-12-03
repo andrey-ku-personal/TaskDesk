@@ -1,5 +1,4 @@
-﻿using TaskDesk.Identity.Handlers.User.Models;
-using MediatR;
+﻿using TaskDesk.Identity.Handlers.Account.Models;
 
 namespace TaskDesk.Identity.Handlers;
 

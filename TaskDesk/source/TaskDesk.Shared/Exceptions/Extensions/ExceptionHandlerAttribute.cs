@@ -26,25 +26,6 @@ public class ExceptionHandlerAttribute : ExceptionFilterAttribute
         }
     }
 
-    private void HandleBadRequest(ExceptionContext context)
-    {
-        var deatils = new ProblemDetails()
-        {
-            Status = (int)HttpStatusCode.BadRequest,
-            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
-            Title = context.Exception.Message,
-            Instance = context.Exception.Source,
-            Detail = context.Exception.StackTrace
-        };
-
-        context.Result = new ObjectResult(deatils)
-        {
-            StatusCode = (int)HttpStatusCode.BadRequest
-        };
-
-        context.ExceptionHandled = true;
-    }
-
     private void HandleNotFound(ExceptionContext context)
     {
         var deatils = new ProblemDetails()
@@ -65,6 +46,11 @@ public class ExceptionHandlerAttribute : ExceptionFilterAttribute
     }
 
     private void HandleNotValid(ExceptionContext context)
+    {
+        HandleBadRequest(context);
+    }
+
+    private void HandleBadRequest(ExceptionContext context)
     {
         var deatils = new ProblemDetails()
         {
