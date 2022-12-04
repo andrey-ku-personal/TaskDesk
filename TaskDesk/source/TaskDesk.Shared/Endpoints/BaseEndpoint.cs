@@ -13,10 +13,10 @@ public class BaseEndpoint : ControllerBase
         _mediator = mediator;
     }
 
-    public async Task<ActionResult> Send<TCommand, TResponse>(TCommand command)
-        where TCommand : IRequest<TResponse>
+    public async Task<ActionResult> Send<TRequest, TResponse>(TRequest request)
+        where TRequest : IRequest<TResponse>
     {
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(request);
         return Ok(result);
     }
 }

@@ -28,6 +28,6 @@ public class GetHandler : IRequestHandler<GetRequest, UserModel>
             .ByQuery(_mapper.Map<GetQuery>(request))
             .ProjectTo<UserModel>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(cancellationToken) ??
-                throw new NotFoundException($"User/{request.Id} was not found");
+                throw new NotFoundException($"User/{(request.Id.HasValue ? request.Id : request.UserIdOrEmail)} was not found");
     }
 }

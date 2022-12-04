@@ -14,14 +14,14 @@ public class CreateTests
     [Fact]
     public async Task Create_UserModel()
     {
-        var command = new Faker().FakeCreateCommand();
-        var result = await _fixture.SendAsync(command);
+        var request = new Faker().FakeCreateRequest();
+        var result = await _fixture.SendAsync(request);
 
         result.AsSource()
             .OfLikeness<UserModel>()
             .Without(x => x.Id)
             .Without(x => x.Password)
             .Without(x => x.UserId)
-            .ShouldEqual(command);
+            .ShouldEqual(request);
     }
 }

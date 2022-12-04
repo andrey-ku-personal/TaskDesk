@@ -73,13 +73,13 @@ public class SliceFixture : IAsyncLifetime
         }
     }
 
-    public async Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> command)
+    public async Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
     {
         return await ExecuteScopeAsync(async sp =>
         {
             var mediator = sp.GetRequiredService<IMediator>();
 
-            return await mediator.Send(command);
+            return await mediator.Send(request);
         });
     }
 
