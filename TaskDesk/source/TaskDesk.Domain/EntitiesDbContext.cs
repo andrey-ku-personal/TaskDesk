@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TaskDesk.Domain.Entities;
+using Microsoft.Extensions.Options;
 
 namespace TaskDesk.Domain;
 
