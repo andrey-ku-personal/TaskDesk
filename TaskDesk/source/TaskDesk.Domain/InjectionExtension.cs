@@ -9,8 +9,9 @@ public static class InjectionExtension
     public static IServiceCollection AddDomainDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContextFactory<EntitiesDbContext>(
-                options => options.UseSqlServer(
-                    configuration.GetConnectionString("Default"),
+                options => options
+                    .UseLazyLoadingProxies()
+                    .UseSqlServer(configuration.GetConnectionString("Default"),
                     x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery)),
                 ServiceLifetime.Transient);
 
