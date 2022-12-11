@@ -15,7 +15,6 @@ public class Faker
         .RuleFor(c => c.Email, (f, c) => f.Internet.Email())
         .Generate();
 
-
     public TokenRequest FakeTokenRequest(UserModel model) => new Faker<TokenRequest>()
        .RuleFor(c => c.Type, () => GrandType.Google)
        .RuleFor(c => c.UserIdOrEmail, () => model.Email)

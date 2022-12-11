@@ -1,9 +1,10 @@
-﻿using TaskDesk.Shared.Queries.Intefaces;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using TaskDesk.Shared.Queries.Intefaces;
 
 namespace TaskDesk.Shared.Queries;
 
-public class BaseQuery<TEntity> : IBaseQuery<TEntity> where TEntity : class
+public class BaseQuery<TEntity> : IBaseQuery<TEntity>
+    where TEntity : class
 {
     public virtual Expression<Func<TEntity, bool>> GetExpression()
     {

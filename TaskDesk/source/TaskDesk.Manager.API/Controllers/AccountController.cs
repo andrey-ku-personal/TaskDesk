@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using NSwag.Annotations;
 using TaskDesk.Identity.Handlers.Account;
 using TaskDesk.Identity.Handlers.Account.Models;
@@ -10,7 +9,6 @@ namespace TaskDesk.Manager.API.Controllers;
 
 public class AccountController : BaseEndpoint
 {
-
     public AccountController(IMediator mediator) : base(mediator)
     {
     }

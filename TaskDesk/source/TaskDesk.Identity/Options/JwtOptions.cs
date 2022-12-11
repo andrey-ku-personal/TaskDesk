@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace TaskDesk.Identity.Options;
 
@@ -12,6 +11,6 @@ public class JwtOptions
 
     public SymmetricSecurityKey GetSymmetricSecurityKey()
     {
-        return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Secret));
+        return new SymmetricSecurityKey(System.Text.Encoding.ASCII.GetBytes(Secret));
     }
 }

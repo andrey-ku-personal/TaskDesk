@@ -11,8 +11,9 @@ public static class InjectionExtension
         services.AddDbContextFactory<EntitiesDbContext>(
                 options => options
                     .UseLazyLoadingProxies()
-                    .UseSqlServer(configuration.GetConnectionString("Default"),
-                    x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery)),
+                    .UseSqlServer(
+                        configuration.GetConnectionString("Default"),
+                        x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery)),
                 ServiceLifetime.Transient);
 
         services.AddScoped(p =>

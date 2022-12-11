@@ -1,9 +1,9 @@
 ﻿using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Shared.Exceptions;
 using TaskDesk.Shared.Queries;
-using Microsoft.EntityFrameworkCore;
 
 namespace TaskDesk.Identity.Handlers.Account;
 

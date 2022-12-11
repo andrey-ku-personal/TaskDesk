@@ -1,8 +1,8 @@
-﻿using TaskDesk.Domain;
-using TaskDesk.Migrations;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using TaskDesk.Domain;
 using TaskDesk.Identity;
+using TaskDesk.Migrations;
 using TaskDesk.Shared;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions

@@ -9,6 +9,6 @@ public class CustomMigrationAttribute : MigrationAttribute
 
     private static long SetVersion(int version, int changeNumber)
     {
-        return version * 1000000L + changeNumber;
+        return (version * 1000000L) + changeNumber;
     }
 }

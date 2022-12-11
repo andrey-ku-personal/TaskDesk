@@ -7,6 +7,7 @@ public class Error
         Message = message;
         Description = description;
     }
+
     public string Message { get; set; }
     public string Description { get; set; }
 

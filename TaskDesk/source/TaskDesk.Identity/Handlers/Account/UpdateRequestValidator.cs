@@ -4,8 +4,8 @@ namespace TaskDesk.Identity.Handlers.Account;
 
 public class UpdateRequestValidator : AbstractValidator<UpdateRequest>
 {
-	public UpdateRequestValidator()
-	{
+    public UpdateRequestValidator()
+    {
         RuleFor(x => x.Id).GreaterThan(0);
 
         RuleFor(x => x.FirstName).NotNull().NotEmpty().MaximumLength(126);

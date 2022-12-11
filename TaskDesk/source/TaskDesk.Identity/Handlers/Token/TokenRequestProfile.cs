@@ -1,5 +1,4 @@
-﻿using TaskDesk.Identity.Handlers.Account.Models;
-using TaskDesk.Identity.Handlers.Account;
+﻿using TaskDesk.Identity.Handlers.Account;
 
 namespace TaskDesk.Identity.Handlers.Token;
 

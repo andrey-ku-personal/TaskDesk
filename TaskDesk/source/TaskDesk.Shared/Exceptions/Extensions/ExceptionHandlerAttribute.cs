@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace TaskDesk.Shared.Exceptions.Extensions;
 
@@ -10,14 +10,13 @@ public class ExceptionHandlerAttribute : ExceptionFilterAttribute
     {
         switch (context.Exception)
         {
-            case BadRequestException b:
+            case BadRequestException:
                 HandleBadRequest(context);
                 break;
-            case NotFoundException n:
+            case NotFoundException:
                 HandleNotFound(context);
                 break;
-
-            case ValidationException v:
+            case ValidationException:
                 HandleNotValid(context);
                 break;
             default:

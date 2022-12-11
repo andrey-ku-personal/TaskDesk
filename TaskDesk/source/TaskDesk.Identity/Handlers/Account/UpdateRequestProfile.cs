@@ -5,8 +5,8 @@ namespace TaskDesk.Identity.Handlers.Account;
 
 public class UpdateRequestProfile : Profile
 {
-	public UpdateRequestProfile()
-	{
+    public UpdateRequestProfile()
+    {
         CreateMap<UpdateRequest, Domain.Entities.User>()
             .EqualityComparison((src, dest) => dest.Id == src.Id)
             .ForMember(dest => dest.UserId, opt => opt.MapFrom<UserIdResolver<UpdateRequest>>())

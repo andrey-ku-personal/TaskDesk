@@ -36,7 +36,7 @@ static void RegisterServices(WebApplicationBuilder builder)
             options.ClientSecret = googleOptions.ClientSecret;
         });
 
-    //https://devblogs.microsoft.com/dotnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/
+    // https://devblogs.microsoft.com/dotnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/
     builder.Services.Configure<CookiePolicyOptions>(options =>
     {
         options.MinimumSameSitePolicy = SameSiteMode.Unspecified;

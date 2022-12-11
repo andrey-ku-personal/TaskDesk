@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using Microsoft.EntityFrameworkCore.Storage;
 using TaskDesk.Domain.Entities;
-using Microsoft.Extensions.Options;
 
 namespace TaskDesk.Domain;
 
@@ -38,7 +37,6 @@ public class EntitiesDbContext : DbContext
             await SaveChangesAsync().ConfigureAwait(false);
 
             await _currentTransaction?.CommitAsync()!;
-
         }
         catch
         {

@@ -1,8 +1,8 @@
-﻿using FluentMigrator.Runner.Initialization;
+﻿using System.Reflection;
 using FluentMigrator.Runner;
+using FluentMigrator.Runner.Initialization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace TaskDesk.Migrations;
 
@@ -16,7 +16,8 @@ public static class InjectionExtension
                 .WithGlobalConnectionString(configuration.GetConnectionString("Default"))
                 .ScanIn(Assembly.GetExecutingAssembly()).For.Migrations())
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
-                .Configure<RunnerOptions>(opt => {
+                .Configure<RunnerOptions>(opt =>
+                {
                     opt.Tags = new[] { "TaskDesk" };
                 })
                 .BuildServiceProvider(false);

@@ -1,5 +1,5 @@
-﻿using TaskDesk.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers;
 using TaskDesk.Identity.Handlers.Account;
 

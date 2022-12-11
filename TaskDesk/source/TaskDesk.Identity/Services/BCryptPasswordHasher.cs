@@ -20,6 +20,7 @@ namespace TaskDesk.Identity.Services
 
             return PasswordVerificationResult.Failed;
         }
+
         private string GenerateSalt()
         {
             var salt = BCrypt.Net.BCrypt.GenerateSalt(WorkFactor);
