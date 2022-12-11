@@ -1,11 +1,11 @@
-﻿using TaskDesk.Domain;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Respawn;
 using Respawn.Graph;
-using Microsoft.AspNetCore.Mvc.Testing;
+using TaskDesk.Domain;
 
 namespace TaskDesk.Core.Functional.Tests.Fixtures;
 
@@ -50,7 +50,7 @@ public class SliceFixture : IAsyncLifetime
         }
         catch (Exception)
         {
-            dbContext.RollbackTransaction(); 
+            dbContext.RollbackTransaction();
             throw;
         }
     }

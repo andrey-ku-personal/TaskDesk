@@ -1,5 +1,5 @@
-﻿using TaskDesk.Shared.Queries;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using TaskDesk.Shared.Queries;
 
 namespace TaskDesk.Identity.Handlers.Account;
 

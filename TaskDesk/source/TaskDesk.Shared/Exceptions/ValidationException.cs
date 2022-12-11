@@ -9,6 +9,7 @@ public class ValidationException : Exception
 
     public ValidationException(string message, Exception innerException) : base(message, innerException) { }
 
-    protected ValidationException(System.Runtime.Serialization.SerializationInfo info,
-       System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    protected ValidationException(
+        System.Runtime.Serialization.SerializationInfo info,
+        System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }

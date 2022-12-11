@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace TaskDesk.Shared.Exceptions.Extensions;
 

@@ -1,9 +1,10 @@
-﻿using TaskDesk.Shared.Queries.Intefaces;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using TaskDesk.Shared.Queries.Intefaces;
 
 namespace TaskDesk.Shared.Queries;
 
-public class BaseSortQuery<TEntity> : BaseQuery<TEntity>, IBaseSortQuery<TEntity> where TEntity : class
+public class BaseSortQuery<TEntity> : BaseQuery<TEntity>, IBaseSortQuery<TEntity>
+    where TEntity : class
 {
     public string SortBy { get; set; }
     public bool IsAscending { get; set; }

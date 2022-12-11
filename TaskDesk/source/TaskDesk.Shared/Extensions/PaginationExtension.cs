@@ -7,7 +7,6 @@ public static class PaginationExtension
     public static FilteredResult<TEntity> PageResult<TEntity>(this IQueryable<TEntity> query, int pageNumber, int pageSize)
         where TEntity : class
     {
-
         var count = query.Count();
 
         if (pageSize <= 0)

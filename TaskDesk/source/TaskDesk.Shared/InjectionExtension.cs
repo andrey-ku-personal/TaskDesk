@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Reflection;
+using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using FluentValidation;
 using MediatR;
@@ -7,9 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
-using System.Reflection;
+using Newtonsoft.Json.Serialization;
 using TaskDesk.Domain;
 using TaskDesk.Shared.Behaviours;
 using TaskDesk.Shared.Exceptions.Extensions;
@@ -22,11 +22,12 @@ public static class InjectionExtension
     {
         var aa = GetAutoMapperProfilesFromAllAssemblies();
 
-        services.AddAutoMapper((serviceProvider, autoMapper) =>
-        {
-            autoMapper.AddCollectionMappers();
-            autoMapper.UseEntityFrameworkCoreModel<EntitiesDbContext>(serviceProvider);
-        }, GetAutoMapperProfilesFromAllAssemblies());
+        services.AddAutoMapper(
+            (serviceProvider, autoMapper) =>
+            {
+                autoMapper.AddCollectionMappers();
+                autoMapper.UseEntityFrameworkCoreModel<EntitiesDbContext>(serviceProvider);
+            }, GetAutoMapperProfilesFromAllAssemblies());
 
         services.AddValidatorsFromAssemblies(GetSolutionAssemblies());
         services.AddMediatR(GetSolutionAssemblies());
@@ -50,14 +51,11 @@ public static class InjectionExtension
         });
     }
 
-    #region CORS
-
     public static void AddSharedCors(this IServiceCollection services)
     {
         services.AddCors(options =>
         {
-            options.AddDefaultPolicy
-            (
+            options.AddDefaultPolicy(
                 builder => builder.AllowAnyOrigin()
                                   .AllowAnyMethod()
                                   .AllowAnyHeader()
@@ -69,10 +67,6 @@ public static class InjectionExtension
     {
         app.UseCors();
     }
-
-    #endregion
-
-    #region Swagger
 
     public static void AddSharedSwagger(this IServiceCollection services)
     {
@@ -101,25 +95,23 @@ public static class InjectionExtension
                 BearerFormat = "JWT"
             });
 
-
             options.AddSecurityRequirement(new OpenApiSecurityRequirement()
-    {
-        {
-            new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                },
-                Scheme = "oauth2",
-                Name = "Bearer",
-                In = ParameterLocation.Header,
-
-            },
-            new List<string>()
-        }
-    });
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        },
+                        Scheme = "oauth2",
+                        Name = "Bearer",
+                        In = ParameterLocation.Header,
+                    },
+                    new List<string>()
+                }
+            });
         });
     }
 
@@ -131,8 +123,6 @@ public static class InjectionExtension
             app.UseSwaggerUI();
         }
     }
-
-    #endregion
 
     public static void SetSameSite(HttpContext httpContext, CookieOptions options)
     {

@@ -17,8 +17,8 @@ public class UserStore : IUserPasswordStore<UserModel>
     private readonly IMediator _mediator;
 
     public UserStore(
-        IDbContextFactory<EntitiesDbContext> contextFactory, 
-        IMapper mapper, 
+        IDbContextFactory<EntitiesDbContext> contextFactory,
+        IMapper mapper,
         IMediator mediator
     )
     {
@@ -146,8 +146,6 @@ public class UserStore : IUserPasswordStore<UserModel>
         return IdentityResult.Success;
     }
 
-    #region User Password Store
-
     public Task<string?> GetPasswordHashAsync(UserModel user, CancellationToken cancellationToken)
     {
         if (user == null) throw new ArgumentNullException(nameof(user));
@@ -212,8 +210,6 @@ public class UserStore : IUserPasswordStore<UserModel>
         await db.CommitTransactionAsync();
     }
 
-    #endregion
-
     public void Dispose()
     {
         Dispose(true);
@@ -222,6 +218,6 @@ public class UserStore : IUserPasswordStore<UserModel>
 
     protected virtual void Dispose(bool disposing)
     {
-        //cleanup
+        // cleanup
     }
 }

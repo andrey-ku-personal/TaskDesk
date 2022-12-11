@@ -1,4 +1,5 @@
-﻿using Desk.Identity.Services;
+﻿using System.Net;
+using Desk.Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -7,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using System.Net;
 using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Identity.Options;
 using TaskDesk.Identity.Services;
@@ -25,7 +25,6 @@ public static class InjectionExtension
         services
             .AddAuthentication(options =>
             {
-
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

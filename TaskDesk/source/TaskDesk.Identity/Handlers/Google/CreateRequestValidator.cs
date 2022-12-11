@@ -1,10 +1,8 @@
-﻿using FluentValidation;
-
-namespace TaskDesk.Identity.Handlers.Google;
+﻿namespace TaskDesk.Identity.Handlers.Google;
 
 public class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
 {
-	public CreateRequestValidator()
-	{
+    public CreateRequestValidator()
+    {
     }
 }

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using TaskDesk.Identity.Handlers.Account;
 using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Identity.Options;
@@ -15,7 +15,7 @@ public class TokenHandler : IRequestHandler<TokenRequest, string>
 {
     private readonly JwtOptions _jwtOptions;
     private readonly IUserPasswordStore<UserModel> _passwordStore;
-    private readonly IPasswordHasher<UserModel> _passwordhasher; 
+    private readonly IPasswordHasher<UserModel> _passwordhasher;
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 

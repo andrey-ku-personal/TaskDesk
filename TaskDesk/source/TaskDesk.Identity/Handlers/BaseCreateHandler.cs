@@ -1,8 +1,8 @@
 ﻿using AutoMapper.EntityFrameworkCore;
-using TaskDesk.Domain;
 using Microsoft.EntityFrameworkCore;
-using TaskDesk.Identity.Handlers.Account.Models;
+using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers.Account;
+using TaskDesk.Identity.Handlers.Account.Models;
 
 namespace TaskDesk.Identity.Handlers;
 

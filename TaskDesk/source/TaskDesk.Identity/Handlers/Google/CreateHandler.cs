@@ -1,7 +1,7 @@
-﻿using TaskDesk.Domain;
-using Microsoft.EntityFrameworkCore;
-using TaskDesk.Identity.Handlers.Google;
+﻿using Microsoft.EntityFrameworkCore;
+using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers;
+using TaskDesk.Identity.Handlers.Google;
 
 namespace Desk.Identity.Handlers.Google;
 

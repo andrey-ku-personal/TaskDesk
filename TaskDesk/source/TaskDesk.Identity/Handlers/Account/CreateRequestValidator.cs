@@ -1,10 +1,12 @@
-﻿using FluentValidation;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using FluentValidation;
 
 namespace TaskDesk.Identity.Handlers.Account;
 
 public partial class CreateRequestValidator : BaseCreateRequestValidator<CreateRequest>
 {
+    private readonly Regex _pattern = PasswordRegex();
+
     public CreateRequestValidator()
     {
         RuleFor(x => x.Password).Must(ValidPassword).MaximumLength(256);
@@ -30,12 +32,12 @@ public partial class CreateRequestValidator : BaseCreateRequestValidator<CreateR
         if (!password.Any(x => char.IsNumber(x)))
             return false;
 
-        if (MyRegex().IsMatch(password))
+        if (_pattern.IsMatch(password))
             return false;
 
         return true;
     }
 
     [GeneratedRegex("^[a-zA-Z0-9 ]*$")]
-    private static partial Regex MyRegex();
+    private static partial Regex PasswordRegex();
 }

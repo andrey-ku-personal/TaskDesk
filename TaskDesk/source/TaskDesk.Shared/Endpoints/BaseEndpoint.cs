@@ -6,17 +6,17 @@ namespace TaskDesk.Shared.Endpoints;
 [ApiController]
 public class BaseEndpoint : ControllerBase
 {
-    protected readonly IMediator _mediator;
+    public IMediator Mediator { get; init; }
 
     public BaseEndpoint(IMediator mediator)
     {
-        _mediator = mediator;
+        Mediator = mediator;
     }
 
     public async Task<ActionResult> Send<TRequest, TResponse>(TRequest request)
         where TRequest : IRequest<TResponse>
     {
-        var result = await _mediator.Send(request);
+        var result = await Mediator.Send(request);
         return Ok(result);
     }
 }
