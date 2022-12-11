@@ -87,3 +87,6 @@ dotnet_diagnostic.SA1111.severity = None
 
 # Braces should not be ommitted
 dotnet_diagnostic.SA1503.severity = None
+
+# Partial element is missing a documentation header.
+dotnet_diagnostic.SA1601.severity = None

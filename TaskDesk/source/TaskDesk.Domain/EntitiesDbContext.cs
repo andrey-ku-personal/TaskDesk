@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using TaskDesk.Domain.Entities;
-using Microsoft.Extensions.Options;
 
 namespace TaskDesk.Domain;
 
