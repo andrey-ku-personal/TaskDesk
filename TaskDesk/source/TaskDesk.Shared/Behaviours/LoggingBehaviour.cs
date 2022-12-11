@@ -14,7 +14,7 @@ public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest,
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        _logger.LogInformation($"Command '{typeof(TRequest).Name}': {JsonConvert.SerializeObject(request)}");
+        _logger.LogInformation($"Request '{typeof(TRequest).Name}': {JsonConvert.SerializeObject(request)}");
 
         var response = await next();
 

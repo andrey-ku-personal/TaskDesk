@@ -10,5 +10,7 @@ public class UserModelProfile : Profile
             .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => DateTime.UtcNow));
 
         CreateMap<Domain.Entities.User, UserModel>();
+
+        CreateMap<UserModel, GetQuery>();
     }
 }

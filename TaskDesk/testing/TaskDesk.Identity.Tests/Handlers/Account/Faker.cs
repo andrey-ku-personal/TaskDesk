@@ -1,7 +1,9 @@
 ﻿using Bogus;
 using TaskDesk.Identity.Handlers.Account;
 using TaskDesk.Identity.Handlers.Account.Models;
+using TaskDesk.Identity.Handlers.Token;
 using TaskDesk.Identity.Tests.Extensions;
+using TaskDesk.Shared.Enums;
 
 namespace TaskDesk.Identity.Tests.Handlers.Account;
 
@@ -22,5 +24,11 @@ public class Faker
        .RuleFor(c => c.Email, (f, c) => f.Internet.Email())
        .RuleFor(c => c.Description, (f, c) => f.Lorem.Sentences(4, ". "))
        .RuleFor(c => c.Website, (f, c) => f.Internet.Url())
+       .Generate();
+
+    public TokenRequest FakeTokenRequest(UserModel model, string password) => new Faker<TokenRequest>()
+       .RuleFor(c => c.Type, () => GrandType.Password)
+       .RuleFor(c => c.UserIdOrEmail, () => model.Email)
+       .RuleFor(c => c.Password, () => password)
        .Generate();
 }
