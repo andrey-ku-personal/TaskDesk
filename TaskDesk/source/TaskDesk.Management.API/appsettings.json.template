@@ -1,0 +1,26 @@
+{
+  "ConnectionStrings": {
+    "Default": "server=.;initial catalog=TaskDesk.Dev;integrated security=False;User ID=akn;Password=123456;multipleactiveresultsets=True;TrustServerCertificate=True;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "Auth": {
+    "Google": {
+      "FailedLink": "http:/failed",
+      "SuccessLink": "http:/succcess",
+      "ClientId": "426779038966-3e7ggodbacdjealnsivub1jpflrda9gv.apps.googleusercontent.com",
+      "ClientSecret": "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"
+    },
+    "Jwt": {
+      "Secret": "ockE3mh_EEWXoaH65v5t2g",
+      "ExparedInMinutes": 20,
+      "Issuer": "JWTAuthenticationServer",
+      "Audience": "JWTServicePostmanClient"
+    }
+  },
+  "AllowedHosts": "*"
+}
