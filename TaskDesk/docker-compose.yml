@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  management-api:
+    container_name: task-desk-server
+    build:
+      context: .
+      dockerfile: source/TaskDesk.Management.API/docker/Dockerfile
+
+  db:
+    container_name: task-desk-db
+    image: mcr.microsoft.com/mssql/server:2022-latest

@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Identity.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management.API", "source\TaskDesk.Management.API\TaskDesk.Management.API.csproj", "{6C450916-1A38-4CF9-ADB3-61E6B079D64C}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{79FD197A-D54D-4A69-9C4F-D1012956874A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{6C450916-1A38-4CF9-ADB3-61E6B079D64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C450916-1A38-4CF9-ADB3-61E6B079D64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C450916-1A38-4CF9-ADB3-61E6B079D64C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
