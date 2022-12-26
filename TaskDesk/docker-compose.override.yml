@@ -1,0 +1,27 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  management-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8002:80"
+    depends_on:
+      - db
+    networks: 
+      - backend
+
+  db:
+    environment:
+      - MSSQL_SA_PASSWORD=vV5r9tn0M4@
+      - ACCEPT_EULA=Y
+      - UserID=sa
+      - ConnectionString=Server=db;Initial Catalog=TaskDesk;User ID=sa;Password=vV5r9tn0M4@;TrustServerCertificate=True
+    networks: 
+      - backend
+    restart: always
+    ports:
+      - "8001:1433"
