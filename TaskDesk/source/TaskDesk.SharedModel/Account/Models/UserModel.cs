@@ -1,4 +1,4 @@
-﻿namespace TaskDesk.Identity.Handlers.Account.Models;
+﻿namespace TaskDesk.SharedModel.Account.Models;
 
 public class UserModel
 {
