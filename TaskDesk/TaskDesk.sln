@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management.API", "
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{79FD197A-D54D-4A69-9C4F-D1012956874A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management.Blazor", "source\TaskDesk.Management.Blazor\TaskDesk.Management.Blazor.csproj", "{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.SharedModel", "source\TaskDesk.SharedModel\TaskDesk.SharedModel.csproj", "{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,14 @@ Global
 		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79FD197A-D54D-4A69-9C4F-D1012956874A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +85,8 @@ Global
 		{78D4B44B-9AE1-44D0-ABBB-922CEEE5AFBF} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 		{7C5DA4AF-8E71-467E-8623-134F2B0DF89A} = {CC2F5528-3D41-4AF9-8A1B-E75A4CC20721}
 		{6C450916-1A38-4CF9-ADB3-61E6B079D64C} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
+		{B4B9F254-F0DB-4C58-B50B-C246A5FEA1BA} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
+		{9ADF4A92-F046-4794-99D4-0AC95F2FEF5A} = {1E6CCF02-8AC5-4FFB-8E88-FFD4121A6CD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A035798-578B-4D25-BC6E-9CFD07C4529E}
