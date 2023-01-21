@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Identity.Handlers.Account;
-using TaskDesk.Identity.Handlers.Account.Models;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Handlers;
 

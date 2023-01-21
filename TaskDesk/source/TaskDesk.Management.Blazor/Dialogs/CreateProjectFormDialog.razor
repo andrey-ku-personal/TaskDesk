@@ -1,0 +1,57 @@
+﻿@using System.Text;
+@using TaskDesk.SharedModel.Project.Models;
+
+@inject HttpClient HttpClient;
+
+<MudDialog>
+    <DialogContent>
+        <MudPaper MinWidth="400px">
+            <MudForm Model="@model" Class="pa-2">
+                <MudTextField T="string"
+                              Label="Name"
+                              FullWidth=true
+                              Variant="Variant.Outlined"
+                              @bind-Value="model.Name"
+                              Class="pb-5" />
+                <MudTextField T="string"
+                              Label="Description"
+                              FullWidth=true
+                              Variant="Variant.Outlined"
+                              @bind-Value="model.Description"
+                              Lines="8" />
+            </MudForm>
+        </MudPaper>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="CancelAll">Close All</MudButton>
+        <MudButton OnClick="Submit">Create</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = default!;
+
+    ProjectModel model = new();
+
+    private async Task Submit()
+    {
+        try
+        {
+            var response = await HttpClient.PostAsJsonAsync("Project/Create", model);
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        
+        
+
+        //var result = await HttpClient.PostAsJsonAsync("Project/Create", model);
+
+        //if (result.StatusCode == System.Net.HttpStatusCode.OK)
+        //    MudDialog.Close(DialogResult.Ok(true));
+    }
+
+    private void CancelAll() => MudDialog.CancelAll();
+}

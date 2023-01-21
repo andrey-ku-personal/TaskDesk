@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Handlers.Account.Models;
 

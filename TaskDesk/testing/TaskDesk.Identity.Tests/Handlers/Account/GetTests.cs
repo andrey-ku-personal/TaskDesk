@@ -1,6 +1,6 @@
 ﻿using Shouldly;
-using TaskDesk.Core.Functional.Tests.Fixtures;
 using TaskDesk.Identity.Handlers.Account;
+using TaskDesk.Identity.Tests.Fixtures;
 using TaskDesk.Shared.Exceptions;
 
 namespace TaskDesk.Identity.Tests.Handlers.Account;

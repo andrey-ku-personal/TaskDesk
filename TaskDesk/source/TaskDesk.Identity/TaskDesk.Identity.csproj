@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaskDesk.Domain\TaskDesk.Domain.csproj" />
+    <ProjectReference Include="..\TaskDesk.SharedModel\TaskDesk.SharedModel.csproj" />
     <ProjectReference Include="..\TaskDesk.Shared\TaskDesk.Shared.csproj" />
   </ItemGroup>
 

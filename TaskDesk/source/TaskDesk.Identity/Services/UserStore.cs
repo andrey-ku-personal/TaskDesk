@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Domain.Entities;
 using TaskDesk.Identity.Handlers.Account;
-using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Shared.Exceptions;
 using TaskDesk.Shared.Queries;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace Desk.Identity.Services;
 

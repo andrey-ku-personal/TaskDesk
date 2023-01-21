@@ -1,5 +1,4 @@
 using TaskDesk.Domain;
-using TaskDesk.Identity;
 using TaskDesk.Migrations;
 using TaskDesk.Shared;
 
@@ -17,21 +16,18 @@ static void RegisterServices(WebApplicationBuilder builder)
 {
     builder.Services.AddDomainDependencies(builder.Configuration);
     builder.Services.AddMigrationsDependencies(builder.Configuration);
+    builder.Services.AddManagementDependencies();
     builder.Services.AddSharedDependencies();
     builder.Services.AddSharedSerializer();
-    builder.Services.AddSharedCors();
-    builder.Services.AddIdentityDependencies(builder.Configuration);
     builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSharedCors();
     builder.Services.AddSwaggerGen();
 }
 
 static void ConfigureApplication(WebApplication app)
 {
-    app.UseSharedSwagger();
-    app.UseSharedCors();
     app.UseHttpsRedirection();
-    app.AddIdentityDependencies();
+    app.UseSharedCors();
     app.MapControllers();
-
-    app.UseCookiePolicy();
+    app.UseSharedSwagger();
 }

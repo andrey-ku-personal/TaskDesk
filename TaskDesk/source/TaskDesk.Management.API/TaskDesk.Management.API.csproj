@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\TaskDesk.Identity\TaskDesk.Identity.csproj" />
+		<ProjectReference Include="..\TaskDesk.Management\TaskDesk.Management.csproj" />
 		<ProjectReference Include="..\TaskDesk.Migrations\TaskDesk.Migrations.csproj" />
 		<ProjectReference Include="..\TaskDesk.Shared\TaskDesk.Shared.csproj" />
 	</ItemGroup>
