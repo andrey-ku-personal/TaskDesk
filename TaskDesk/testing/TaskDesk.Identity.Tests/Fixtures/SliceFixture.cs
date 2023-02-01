@@ -7,7 +7,7 @@ using Respawn;
 using Respawn.Graph;
 using TaskDesk.Domain;
 
-namespace TaskDesk.Core.Functional.Tests.Fixtures;
+namespace TaskDesk.Identity.Tests.Fixtures;
 
 [CollectionDefinition(nameof(SliceFixture))]
 public class SliceFixtureCollection : ICollectionFixture<SliceFixture> { }

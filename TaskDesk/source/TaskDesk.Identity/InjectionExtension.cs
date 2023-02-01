@@ -8,10 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Identity.Options;
 using TaskDesk.Identity.Services;
 using TaskDesk.Shared.Models;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity;
 

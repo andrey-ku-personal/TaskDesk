@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Handlers.Account.Models;
 

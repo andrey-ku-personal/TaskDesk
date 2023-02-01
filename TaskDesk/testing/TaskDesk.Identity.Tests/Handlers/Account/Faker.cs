@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using TaskDesk.Identity.Handlers.Account;
-using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Identity.Handlers.Token;
 using TaskDesk.Identity.Tests.Extensions;
 using TaskDesk.Shared.Enums;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Tests.Handlers.Account;
 

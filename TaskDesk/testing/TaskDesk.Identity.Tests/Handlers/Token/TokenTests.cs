@@ -1,7 +1,5 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Shouldly;
-using TaskDesk.Core.Functional.Tests.Fixtures;
+﻿using Shouldly;
+using TaskDesk.Identity.Tests.Fixtures;
 using TaskDesk.Shared.Exceptions;
 
 namespace TaskDesk.Identity.Tests.Handlers.Token;

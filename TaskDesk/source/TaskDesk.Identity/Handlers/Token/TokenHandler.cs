@@ -8,6 +8,7 @@ using TaskDesk.Identity.Handlers.Account.Models;
 using TaskDesk.Identity.Options;
 using TaskDesk.Shared.Enums;
 using TaskDesk.Shared.Exceptions;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Handlers.Token;
 

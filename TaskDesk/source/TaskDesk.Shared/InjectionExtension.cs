@@ -20,8 +20,6 @@ public static class InjectionExtension
 {
     public static void AddSharedDependencies(this IServiceCollection services)
     {
-        var aa = GetAutoMapperProfilesFromAllAssemblies();
-
         services.AddAutoMapper(
             (serviceProvider, autoMapper) =>
             {
@@ -56,10 +54,12 @@ public static class InjectionExtension
         services.AddCors(options =>
         {
             options.AddDefaultPolicy(
-                builder => builder.AllowAnyOrigin()
-                                  .AllowAnyMethod()
-                                  .AllowAnyHeader()
-            );
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
         });
     }
 

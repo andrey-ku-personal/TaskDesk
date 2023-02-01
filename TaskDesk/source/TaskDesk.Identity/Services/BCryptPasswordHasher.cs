@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using TaskDesk.Identity.Handlers.Account.Models;
+using TaskDesk.SharedModel.Account.Models;
 
 namespace TaskDesk.Identity.Services
 {
