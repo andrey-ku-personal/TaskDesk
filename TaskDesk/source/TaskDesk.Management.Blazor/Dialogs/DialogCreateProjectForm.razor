@@ -1,0 +1,61 @@
+﻿@using System.Text;
+@using TaskDesk.Management.Blazor.Core.Endpoints.Project;
+@using TaskDesk.SharedModel.Project.Models;
+
+@inject ProjectEndpoints HttpClient;
+@inject ISnackbar Snackbar
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3" /> Create Project
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudPaper MinWidth="400px" Elevation="2" Square="true">
+            <MudForm Model="@model" Class="pa-2">
+                <MudTextField
+                    T="string"
+                    Label="Name"
+                    FullWidth=true
+                    Variant="Variant.Outlined"
+                    @bind-Value="model.Name"
+                    Class="pb-5" />
+                <MudTextField 
+                    class="field"
+                    Label="Description"
+                    FullWidth=true
+                    Variant="Variant.Outlined"
+                    @bind-Value="model.Description"
+                    Lines="8" />
+            </MudForm>
+        </MudPaper>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="CancelAll">Close All</MudButton>
+        <MudButton OnClick="Submit">Create</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = default!;
+
+    ProjectModel model = new();
+
+    private async Task Submit()
+    {
+        try
+        {
+            var project = await HttpClient.Create<ProjectModel, ProjectModel>("Project/Create", model);
+            Snackbar.Add($"<ul><li>Successfull</li><li>Project '{project.Name}' was created</li></ul>", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"{ex.Message}", Severity.Error);
+        }
+
+    }
+
+    private void CancelAll() => MudDialog.CancelAll();
+}

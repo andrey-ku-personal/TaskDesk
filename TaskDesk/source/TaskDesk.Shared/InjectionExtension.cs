@@ -20,8 +20,6 @@ public static class InjectionExtension
 {
     public static void AddSharedDependencies(this IServiceCollection services)
     {
-        var aa = GetAutoMapperProfilesFromAllAssemblies();
-
         services.AddAutoMapper(
             (serviceProvider, autoMapper) =>
             {

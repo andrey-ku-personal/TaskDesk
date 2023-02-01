@@ -1,22 +1,24 @@
 ﻿@inject IDialogService DialogService
 
-<MudPaper Width="250px" Class="d-inline-flex py-3" Elevation="0">
-    <MudNavMenu Class="mud-width-full">
-        <MudText Typo="Typo.h6" Class="px-4">Task Desk</MudText>
+<MudDrawerContainer Class="mud-height-full">
+    <MudDrawer Open="true" Elevation="0" Variant="@DrawerVariant.Persistent">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Task Desk</MudText>
+        </MudDrawerHeader>
+    <MudNavMenu>
         <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
-        <div>
-            <MudNavGroup Title="Projects" Icon="@Icons.Material.Filled.ViewKanban" Expanded="true">
-                <MudNavLink Icon="@Icons.Material.Filled.Add" OnClick="OpenProjectCreateDialog">Create</MudNavLink>
-                <MudNavLink Icon="@Icons.Material.Filled.MoreHoriz">More</MudNavLink>
-            </MudNavGroup>
-        </div>
+        <MudNavGroup Title="Projects" Icon="@Icons.Material.Filled.ViewKanban" Expanded="true">
+            <MudNavLink Icon="@Icons.Material.Filled.Add" OnClick="OpenProjectCreateDialog">Create</MudNavLink>
+            <MudNavLink Icon="@Icons.Material.Filled.MoreHoriz">More</MudNavLink>
+        </MudNavGroup>
     </MudNavMenu>
-</MudPaper>
+    </MudDrawer>
+
+</MudDrawerContainer>
 
 @code {
     private async Task OpenProjectCreateDialog()
     {
-        var options = new DialogOptions() { DisableBackdropClick = true, MaxWidth = MaxWidth.ExtraSmall, CloseButton = true };
-        var dialog = await DialogService.ShowAsync<Dialogs.CreateMenuDialog>("Create Menu", options);
+        var dialog = await DialogService.ShowAsync<Dialogs.DialogCreateMenu>();
     }
 }
