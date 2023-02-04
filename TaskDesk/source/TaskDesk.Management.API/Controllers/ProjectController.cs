@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using TaskDesk.Management.Handlers.Project;
 using TaskDesk.Shared.Endpoints;
+using TaskDesk.Shared.Queries.Filter;
 using TaskDesk.SharedModel.Project.Models;
 
 namespace TaskDesk.Management.API.Controllers;
@@ -30,4 +31,13 @@ public class ProjectController : BaseEndpoint
     ]
     [OpenApiTags("Project")]
     public async Task<ActionResult> Get([FromBody] GetRequest request) => await Send<GetRequest, ProjectModel>(request);
+
+    [HttpPost("Project/GetAll")]
+    [OpenApiOperation(
+      operationId: "Project.GetAll",
+      summary: "GetAll Projects",
+      description: "GetAll Projects")
+   ]
+    [OpenApiTags("Project")]
+    public async Task<ActionResult> GetAll([FromBody] GetAllRequest request) => await Send<GetAllRequest, FilteredResult<ProjectViewModel>>(request);
 }

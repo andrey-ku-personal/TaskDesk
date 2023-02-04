@@ -7,11 +7,9 @@ public class ProjectModelProfile : Profile
 {
     public ProjectModelProfile()
     {
-        CreateMap<ProjectModel, Domain.Entities.User>()
-            .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => DateTime.UtcNow));
+        CreateMap<ProjectModel, Domain.Entities.Project>();
+        CreateMap<ProjectModel, GetQuery>();
 
         CreateProjection<Domain.Entities.Project, ProjectModel>();
-
-        CreateMap<ProjectModel, GetQuery>();
     }
 }

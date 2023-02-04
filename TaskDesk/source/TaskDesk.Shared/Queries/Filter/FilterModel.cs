@@ -2,7 +2,7 @@
 
 namespace TaskDesk.Shared.Queries.Filter;
 
-public record FilterModel : IPageFilter
+public class FilterModel : IPageFilter
 {
     public int PageNumber { get; set; } = 0;
     public int PageSize { get; set; } = 10;

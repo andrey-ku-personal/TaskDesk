@@ -24,9 +24,11 @@ public static class QuriableExtension
         return result.OrderBy(query.GetSortingExpression());
     }
 
+    public static Task<FilteredResult<TEntity>> PaginateAsync<TEntity>(this IQueryable<TEntity> items, IPageFilter filter)
+        where TEntity : class
+        => items.PageResultAsync(filter.PageNumber, filter.PageSize);
+
     public static FilteredResult<TEntity> Paginate<TEntity>(this IQueryable<TEntity> items, IPageFilter filter)
         where TEntity : class
-    {
-        return items.PageResult(filter.PageNumber, filter.PageSize);
-    }
+        => items.PageResult(filter.PageNumber, filter.PageSize);
 }
