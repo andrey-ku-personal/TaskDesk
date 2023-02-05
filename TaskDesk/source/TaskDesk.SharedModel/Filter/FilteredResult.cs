@@ -1,4 +1,4 @@
-﻿namespace TaskDesk.Shared.Queries.Filter;
+﻿namespace TaskDesk.SharedModel.Filter;
 
 public record FilteredResult<TResult>
     where TResult : class

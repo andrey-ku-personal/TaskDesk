@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskDesk.Core.Extensions;
 using TaskDesk.Shared.Extensions;
-using TaskDesk.Shared.Queries.Filter;
 using TaskDesk.Shared.Queries.Intefaces;
+using TaskDesk.SharedModel.Filter;
 
 namespace TaskDesk.Shared.Queries;
 

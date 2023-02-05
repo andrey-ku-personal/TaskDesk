@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Shared.Queries;
-using TaskDesk.Shared.Queries.Filter;
+using TaskDesk.SharedModel.Filter;
 using TaskDesk.SharedModel.Project.Models;
 
 namespace TaskDesk.Management.Handlers.Project;

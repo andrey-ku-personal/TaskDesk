@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using TaskDesk.Management.Handlers.Project;
 using TaskDesk.Shared.Endpoints;
-using TaskDesk.Shared.Queries.Filter;
+using TaskDesk.SharedModel.Filter;
 using TaskDesk.SharedModel.Project.Models;
 
 namespace TaskDesk.Management.API.Controllers;

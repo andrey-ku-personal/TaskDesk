@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TaskDesk.Shared.Queries.Filter;
+using TaskDesk.SharedModel.Filter;
 
 namespace TaskDesk.Core.Extensions;
 
