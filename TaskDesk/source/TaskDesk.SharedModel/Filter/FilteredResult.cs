@@ -1,6 +1,6 @@
 ﻿namespace TaskDesk.SharedModel.Filter;
 
-public record FilteredResult<TResult>
+public class FilteredResult<TResult>
     where TResult : class
 {
     public FilteredResult(int totalCount, List<TResult> result)
