@@ -1,3 +1,8 @@
 ﻿.seach-field {
     margin: 4px 20px;
 }
+
+.paginator {
+    display: flex;
+    justify-content: center;
+}

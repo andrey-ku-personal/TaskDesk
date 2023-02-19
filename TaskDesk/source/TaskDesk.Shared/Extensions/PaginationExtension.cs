@@ -18,7 +18,7 @@ public static class PaginationExtension
 
         var result = query.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
-        return new FilteredResult<TEntity>(count, result);
+        return new FilteredResult<TEntity>(pageNumber, pageSize, count, result);
     }
 
     public static async Task<FilteredResult<TEntity>> PageResultAsync<TEntity>(this IQueryable<TEntity> query, int pageNumber, int pageSize)
@@ -34,6 +34,6 @@ public static class PaginationExtension
 
         var result = await query.Skip(pageNumber * pageSize).Take(pageSize).ToListAsync();
 
-        return new FilteredResult<TEntity>(count, result);
+        return new FilteredResult<TEntity>(pageNumber, pageSize, count, result);
     }
 }

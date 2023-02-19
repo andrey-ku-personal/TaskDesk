@@ -16,9 +16,10 @@
                 Title="Projects"
                 Icon="@Icons.Material.Filled.ViewKanban"
                 ExpandedChanged="OpenProjects">
-                @*<MudNavLink Icon="@Icons.Material.Filled.MoreHoriz" OnClick="OpenProjectCreateDialog">Actions</MudNavLink>*@
                 <div class="seach-field">
                     <MudTextField
+                        Adornment="Adornment.Start"
+                        AdornmentIcon="@Icons.Material.Filled.Search"
                         @bind-Value="_filter.SearchByText"
                         Label="Search"
                         Variant="Variant.Text"
@@ -26,12 +27,23 @@
                     </MudTextField>
                 </div>
 
-                @if (_result.Result.Any())
+                @if (_result.Result != null)
                 {
                     @foreach (var project in _result.Result)
                     {
                         <MudNavLink Icon="@Icons.Material.Filled.Adjust">@project.Name</MudNavLink>
                     }
+
+                    <div class="paginator">
+                        <MudPagination
+                            Color="Color.Primary"
+                            Size="Size.Small" 
+                            BoundaryCount="1"
+                            MiddleCount="0"
+                            Count="_result.PageCount"
+                            SelectedChanged="Paginate"
+                            Selected="_pageIndex" />
+                    </div>
                 }
             </MudNavGroup>
         </MudNavMenu>
@@ -41,31 +53,44 @@
 
 @code {
     private bool _isProjectListOpened;
-    private Core.FilterModel _filter = new();
-    private FilteredResult<ProjectViewModel> _result = new(0, new());
+    private int _pageIndex = 1;
+    private Core.FilterModel _filter = new() { PageSize = 3 };
+    private FilteredResult<ProjectViewModel> _result = new();
+
+    private MudPagination _mudPagination = default!;
 
     private async Task OpenProjectCreateDialog()
     {
-        var dialog = await DialogService.ShowAsync<Dialogs.DialogCreateMenu>();
+        await DialogService.ShowAsync<Dialogs.DialogCreateMenu>();
     }
 
     private async Task OpenProjects()
     {
         if (!_isProjectListOpened)
-            _result = await HttpClient.GetAll(_filter);
+            _result = await Load(_filter);
 
         _isProjectListOpened = !_isProjectListOpened;
     }
 
-    private async Task ChangeList(int pageNumber)
+    private async Task Paginate(int pageNumber)
     {
+        _pageIndex = pageNumber;
         _filter.PageNumber = pageNumber - 1;
 
-        _result = await HttpClient.GetAll(_filter);
+        _result = await Load(_filter);
     }
 
     private async Task SearchByText(string text)
     {
-        _result = await HttpClient.GetAll(_filter);
+        _filter.PageNumber = 0;
+
+        _result = await Load(_filter);
+
+        _pageIndex = 1;
+    }
+
+    private async Task<FilteredResult<ProjectViewModel>> Load(Core.FilterModel filter)
+    {
+        return await HttpClient.GetAll(filter);
     }
 }
