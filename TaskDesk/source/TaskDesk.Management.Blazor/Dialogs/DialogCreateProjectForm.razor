@@ -46,9 +46,8 @@
     [CascadingParameter]
     private MudDialogInstance MudDialog { get; set; } = default!;
 
-    private ProjectModel model = default!;
+    private ProjectModel model = new();
     private MudForm? form = default!;
-
 
     private async Task Submit()
     {
@@ -60,6 +59,15 @@
             {
                 var project = await HttpClient.Create<ProjectModel, ProjectModel>("Project/Create", model);
                 Snackbar.Add($"<ul><li>Successfull</li><li>Project '{project.Name}' was created</li></ul>", Severity.Success);
+            }
+            else
+            {
+                var stringBuilder = new StringBuilder();
+
+                foreach (var erroe in form.Errors)
+                    stringBuilder.Append($"<li>{erroe}</li>");
+
+                Snackbar.Add($"<ul><li>Wrong!</li><li>{stringBuilder.ToString()}</li></ul>", Severity.Warning);
             }
         }
         catch (Exception ex)

@@ -6,3 +6,13 @@
     display: flex;
     justify-content: center;
 }
+
+.poject-group {
+    position: relative;
+}
+
+.actions-btn {
+    position: absolute;
+    right: 40px;
+    top: 7px;
+}
