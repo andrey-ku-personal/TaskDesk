@@ -13,12 +13,17 @@
     </TitleContent>
     <DialogContent>
         <MudPaper MinWidth="400px" Elevation="2" Square="true">
-            <MudForm Model="@model" Class="pa-2">
+            <MudForm 
+                @ref="form"
+                Model="@model"
+                Class="pa-2">
                 <MudTextField
                     T="string"
                     Label="Name"
                     FullWidth=true
                     Variant="Variant.Outlined"
+                    Required="true"
+                    RequiredError="Name is required!"
                     @bind-Value="model.Name"
                     Class="pb-5" />
                 <MudTextField 
@@ -39,16 +44,23 @@
 
 @code {
     [CascadingParameter]
-    MudDialogInstance MudDialog { get; set; } = default!;
+    private MudDialogInstance MudDialog { get; set; } = default!;
 
-    ProjectModel model = new();
+    private ProjectModel model = default!;
+    private MudForm? form = default!;
+
 
     private async Task Submit()
     {
         try
         {
-            var project = await HttpClient.Create<ProjectModel, ProjectModel>("Project/Create", model);
-            Snackbar.Add($"<ul><li>Successfull</li><li>Project '{project.Name}' was created</li></ul>", Severity.Success);
+            await form!.Validate();
+
+            if (form.Errors.Length == 0)
+            {
+                var project = await HttpClient.Create<ProjectModel, ProjectModel>("Project/Create", model);
+                Snackbar.Add($"<ul><li>Successfull</li><li>Project '{project.Name}' was created</li></ul>", Severity.Success);
+            }
         }
         catch (Exception ex)
         {

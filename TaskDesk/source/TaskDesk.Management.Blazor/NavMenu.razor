@@ -16,6 +16,12 @@
                 Title="Projects"
                 Icon="@Icons.Material.Filled.ViewKanban"
                 ExpandedChanged="OpenProjects">
+                <MudNavLink
+                    Icon="@Icons.Material.Filled.MoreHoriz"
+                    OnClick="OpenProjectCreateDialog"
+                >
+                    Actions
+                </MudNavLink>
                 <div class="seach-field">
                     <MudTextField
                         Adornment="Adornment.Start"
@@ -75,7 +81,7 @@
     private async Task Paginate(int pageNumber)
     {
         _pageIndex = pageNumber;
-        _filter.PageNumber = pageNumber - 1;
+        _filter.PageNumber = pageNumber;
 
         _result = await Load(_filter);
     }
