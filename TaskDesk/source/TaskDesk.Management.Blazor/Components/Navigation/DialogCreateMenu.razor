@@ -32,12 +32,13 @@
 </MudDialog>
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = default!;
 
     private void Cancel() => MudDialog.Cancel();
 
     private void OpenCreateProjectFormDialog()
     {
-        DialogService.Show<Dialogs.DialogCreateProjectForm>();
+        DialogService.Show<Components.Projects.DialogCreateProjectForm>();
     }
 }

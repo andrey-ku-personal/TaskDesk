@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaskDesk.SharedModel\TaskDesk.SharedModel.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,13 @@
-﻿@inherits LayoutComponentBase
+﻿@using TaskDesk.Management.Blazor.Components.Navigation;
+
+@inherits LayoutComponentBase
 
 <MudThemeProvider Theme="@MyCustomTheme" />
 <MudDialogProvider
     Position="DialogPosition.Center" />
 <MudSnackbarProvider/>
 
-<NavMenu />
+<NavMenu/>
 @*Body*@
 
 @code {
@@ -14,8 +16,6 @@
             Palette = new Palette()
             {
                 Primary = Colors.BlueGrey.Darken4,
-
-                //Surface = Colors.BlueGrey.Darken4,
 
                 TextPrimary = Colors.BlueGrey.Darken4,
 

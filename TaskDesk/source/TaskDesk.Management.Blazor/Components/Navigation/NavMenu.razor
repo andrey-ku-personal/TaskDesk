@@ -62,30 +62,29 @@
 </MudDrawerContainer>
 
 @code {
-    private bool _isProjectListOpened;
+    private bool _showProjects;
     private int _pageIndex = 1;
-    private Core.FilterModel _filter = new() { PageSize = 3 };
-    private FilteredResult<ProjectViewModel> _result = new();
 
-    private MudPagination _mudPagination = default!;
+    private Core.FilterModel _filter = new () { PageSize = 5 }!;
+    private FilteredResult<ProjectViewModel> _result = new();
 
     private async Task OpenProjectCreateDialog()
     {
-        await DialogService.ShowAsync<Dialogs.DialogCreateMenu>();
+        await DialogService.ShowAsync<Navigation.DialogCreateMenu>();
     }
 
     private async Task OpenProjects()
     {
-        if (!_isProjectListOpened)
+        if (!_showProjects)
             _result = await Load(_filter);
 
-        _isProjectListOpened = !_isProjectListOpened;
+        _showProjects = !_showProjects;
     }
 
     private async Task Paginate(int pageNumber)
     {
         _pageIndex = pageNumber;
-        _filter.PageNumber = pageNumber;
+        _filter.PageNumber = pageNumber - 1;
 
         _result = await Load(_filter);
     }
@@ -100,7 +99,5 @@
     }
 
     private async Task<FilteredResult<ProjectViewModel>> Load(Core.FilterModel filter)
-    {
-        return await HttpClient.GetAll(filter);
-    }
+        => await HttpClient.GetAll(filter);
 }
