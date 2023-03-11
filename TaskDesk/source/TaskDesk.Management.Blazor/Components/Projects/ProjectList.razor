@@ -1,0 +1,89 @@
+﻿@using TaskDesk.Management.Blazor.Core.Handlers.Project;
+@using TaskDesk.Management.Blazor.Core;
+@using TaskDesk.Management.Blazor.Core.Handlers.Project.Models;
+@using TaskDesk.SharedModel.Filter;
+@using TaskDesk.SharedModel.Handlers.Project.Models;
+
+@page "/project/list"
+
+@layout MainLayout
+
+@inject ProjectEndpoints HttpClient;
+
+<div>
+    <MudText Typo="Typo.h6">Project List</MudText>
+    <MudSpacer />
+    <MudTextField 
+        Adornment="Adornment.Start"
+        AdornmentIcon="@Icons.Material.Filled.Search"
+        @bind-Value="_filter.SearchByText"
+        Label="Search"
+        Variant="Variant.Text"
+        TextChanged="SearchByText">
+    </MudTextField>
+</div>
+
+<div class="table-toolbar-filters">
+    <MudSelect T="string" Label="Status" AnchorOrigin="Origin.BottomCenter" ValueChanged="FilterByStatus">
+        <MudSelectItem Value="@("None")" />
+        <MudSelectItem Value="@("Active")" />
+        <MudSelectItem Value="@("Archived")" />
+    </MudSelect>
+</div>
+
+<MudTable
+    Items="@_result.Result"
+    Hover="true"
+    Bordered="true"
+    Striped="true"
+    Loading="@_loading"
+    LoadingProgressColor="Color.Warning">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Status</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Status">@context.Status</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private bool _loading;
+
+    private FilterModel _filter = default!;
+    protected FilteredResult<ProjectViewModel> _result = new() { Result = new() };
+
+    protected override async Task OnInitializedAsync()
+    {
+        _filter = new() { PageSize = 20 };
+
+        _result = await LoadDataAsync(_filter);
+    }
+
+    protected async Task<FilteredResult<ProjectViewModel>> LoadDataAsync(FilterModel filter)
+    {
+        _loading = true;
+        var result = await HttpClient.GetAll(_filter);
+        _loading = false;
+
+        return result;
+    }
+
+    private async Task SearchByText(string text)
+    {
+        _filter.PageNumber = 0;
+
+        _result = await Load(_filter);
+
+        //_pageIndex = 1;
+    }
+
+    private async Task FilterByStatus(string value)
+    {
+        Console.WriteLine($"{value}");
+    }
+
+    private async Task<FilteredResult<ProjectViewModel>> Load(Core.FilterModel filter)
+        => await HttpClient.GetAll(filter);
+}

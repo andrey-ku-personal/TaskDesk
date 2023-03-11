@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using TaskDesk.Management.Handlers.Project;
+using TaskDesk.Management.Handlers.Project.Models;
 using TaskDesk.Shared.Endpoints;
 using TaskDesk.SharedModel.Filter;
-using TaskDesk.SharedModel.Project.Models;
+using TaskDesk.SharedModel.Handlers.Project.Models;
 
 namespace TaskDesk.Management.API.Controllers;
 

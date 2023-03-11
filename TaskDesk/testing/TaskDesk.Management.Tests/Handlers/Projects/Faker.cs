@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using TaskDesk.Management.Handlers.Project;
 using TaskDesk.SharedModel.Enums;
-using TaskDesk.SharedModel.Project.Models;
 
 namespace TaskDesk.Management.Tests.Handlers.Projects;
 

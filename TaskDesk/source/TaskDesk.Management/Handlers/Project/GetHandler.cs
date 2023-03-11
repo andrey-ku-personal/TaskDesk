@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
 using TaskDesk.Shared.Exceptions;
 using TaskDesk.Shared.Queries;
-using TaskDesk.SharedModel.Project.Models;
+using TaskDesk.SharedModel.Handlers.Project.Models;
 
 namespace TaskDesk.Management.Handlers.Project;
 

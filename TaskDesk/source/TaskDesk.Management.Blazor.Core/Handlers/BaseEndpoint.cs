@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using TaskDesk.SharedModel.Error;
 
-namespace TaskDesk.Management.Blazor.Core.BaseEnpoints;
+namespace TaskDesk.Management.Blazor.Core.Handlers;
 
 public class BaseEndpoint : HttpClient
 {
@@ -11,9 +11,6 @@ public class BaseEndpoint : HttpClient
     {
         var response = await this.PostAsJsonAsync(endpoint, model);
 
-        //if (!response.IsSuccessStatusCode)
-        //    throw await GenerateExcepiton(response.Content);
-
         return await response.Content.ReadFromJsonAsync<TResponse>() ?? default!;
     }
 
@@ -22,9 +19,6 @@ public class BaseEndpoint : HttpClient
         where TResponse : class
     {
         var response = await this.PostAsJsonAsync(endpoint, model);
-
-        //if (!response.IsSuccessStatusCode)
-        //    throw await GenerateExcepiton(response.Content);
 
         return await response.Content.ReadFromJsonAsync<TResponse>() ?? default!;
     }

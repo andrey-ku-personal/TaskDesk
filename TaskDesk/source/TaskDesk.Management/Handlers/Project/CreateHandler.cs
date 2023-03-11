@@ -3,7 +3,7 @@ using AutoMapper.EntityFrameworkCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
-using TaskDesk.SharedModel.Project.Models;
+using TaskDesk.SharedModel.Handlers.Project.Models;
 
 namespace TaskDesk.Management.Handlers.Project;
 

@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management", "sour
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management.Tests", "testing\TaskDesk.Management.Tests\TaskDesk.Management.Tests.csproj", "{D5BC356C-20A4-423D-9A84-D6AAE764587A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDesk.Management.Blazor.Core", "source\TaskDesk.Management.Blazor.Core\TaskDesk.Management.Blazor.Core.csproj", "{1B5417B1-1DBF-4D4C-9204-CE3C25D3D54B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDesk.Management.Blazor.Core", "source\TaskDesk.Management.Blazor.Core\TaskDesk.Management.Blazor.Core.csproj", "{1B5417B1-1DBF-4D4C-9204-CE3C25D3D54B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

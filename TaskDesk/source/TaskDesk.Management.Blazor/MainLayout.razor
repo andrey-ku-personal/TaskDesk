@@ -2,26 +2,24 @@
 
 @inherits LayoutComponentBase
 
-<MudThemeProvider Theme="@MyCustomTheme" />
+<MudThemeProvider/>
 <MudDialogProvider
     Position="DialogPosition.Center" />
 <MudSnackbarProvider/>
 
-<NavMenu/>
-@*Body*@
-
-@code {
-    MudTheme MyCustomTheme = new()
-        {
-            Palette = new Palette()
-            {
-                Primary = Colors.BlueGrey.Darken4,
-
-                TextPrimary = Colors.BlueGrey.Darken4,
-
-                DrawerBackground = Colors.BlueGrey.Lighten5,
-                DrawerText = Colors.BlueGrey.Darken4,
-                DrawerIcon = Colors.BlueGrey.Darken4
-            },
-        };
-}
+<MudLayout>
+    <MudDrawer Open="true" Elevation="0" Variant="@DrawerVariant.Persistent">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Task Desk</MudText>
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">Home</MudNavLink>
+            <MudNavLink Href="/project/list" Icon="@Icons.Material.Filled.ViewList">Projects</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer>
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

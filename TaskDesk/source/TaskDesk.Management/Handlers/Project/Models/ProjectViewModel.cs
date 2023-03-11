@@ -1,11 +1,10 @@
 ﻿using TaskDesk.SharedModel.Enums;
 
-namespace TaskDesk.SharedModel.Project.Models;
+namespace TaskDesk.Management.Handlers.Project.Models;
 
-public class ProjectModel
+public class ProjectViewModel
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;
-    public string Description { get; set; } = default!;
     public ProjectStatus Status { get; set; }
 }

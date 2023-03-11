@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using TaskDesk.SharedModel.Project.Models;
+using TaskDesk.SharedModel.Handlers.Project.Models;
 
 namespace TaskDesk.Management.Handlers.Project;
 

@@ -1,9 +1,8 @@
 ﻿using System.Net.Http.Json;
-using TaskDesk.Management.Blazor.Core.BaseEnpoints;
+using TaskDesk.Management.Blazor.Core.Handlers.Project.Models;
 using TaskDesk.SharedModel.Filter;
-using TaskDesk.SharedModel.Project.Models;
 
-namespace TaskDesk.Management.Blazor.Core.Endpoints.Project;
+namespace TaskDesk.Management.Blazor.Core.Handlers.Project;
 
 public class ProjectEndpoints : BaseEndpoint
 {

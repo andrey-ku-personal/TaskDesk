@@ -3,9 +3,9 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TaskDesk.Domain;
+using TaskDesk.Management.Handlers.Project.Models;
 using TaskDesk.Shared.Queries;
 using TaskDesk.SharedModel.Filter;
-using TaskDesk.SharedModel.Project.Models;
 
 namespace TaskDesk.Management.Handlers.Project;
 

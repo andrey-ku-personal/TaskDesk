@@ -1,67 +1,17 @@
-﻿@using TaskDesk.Management.Blazor.Core.Endpoints.Project;
-@using TaskDesk.SharedModel.Filter;
-@using TaskDesk.SharedModel.Project.Models;
-
-@inject IDialogService DialogService
-@inject ProjectEndpoints HttpClient;
+﻿@inject IDialogService DialogService
 
 <MudDrawerContainer Class="mud-height-full">
     <MudDrawer Open="true" Elevation="0" Variant="@DrawerVariant.Persistent">
         <MudDrawerHeader>
             <MudText Typo="Typo.h6">Task Desk</MudText>
         </MudDrawerHeader>
-    <MudNavMenu>
-        <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
-            <div class="poject-group">
-                <MudNavGroup
-                    Title="Projects"
-                    Icon="@Icons.Material.Filled.ViewKanban"
-                    ExpandedChanged="OpenProjects">
-                    <div class="seach-field">
-                        <MudTextField
-                            Adornment="Adornment.Start"
-                            AdornmentIcon="@Icons.Material.Filled.Search"
-                            @bind-Value="_filter.SearchByText"
-                            Label="Search"
-                            Variant="Variant.Text"
-                            TextChanged="SearchByText">
-                        </MudTextField>
-                    </div>
-
-                    @if (_result.Result != null)
-                    {
-                        @foreach (var project in _result.Result)
-                        {
-                            <MudNavLink Icon="@Icons.Material.Filled.Adjust">@project.Name</MudNavLink>
-                        }
-
-                        <div class="paginator">
-                            <MudPagination
-                                Color="Color.Primary"
-                                Size="Size.Small" 
-                                BoundaryCount="1"
-                                MiddleCount="0"
-                                Count="_result.PageCount"
-                                SelectedChanged="Paginate"
-                                Selected="_pageIndex" />
-                        </div>
-                    }
-                </MudNavGroup>
-                 <div class="actions-btn">
-                     <MudIconButton
-                         Icon="@Icons.Material.Filled.Add"
-                         Color="Color.Primary"
-                         Size="Size.Small"
-                         OnClick="OpenProjectCreateDialog"
-                     />
-                 </div>
-            </div>
+        <MudNavMenu>
+                <MudNavLink Href="/project/list" Icon="@Icons.Material.Filled.ViewList">Projects</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
-
 </MudDrawerContainer>
 
-@code {
+@*code {
     private bool _showProjects;
     private int _pageIndex = 1;
 
@@ -79,6 +29,8 @@
             _result = await Load(_filter);
 
         _showProjects = !_showProjects;
+
+        Navigation.NavigateTo("project/list");
     }
 
     private async Task Paginate(int pageNumber)
@@ -101,3 +53,4 @@
     private async Task<FilteredResult<ProjectViewModel>> Load(Core.FilterModel filter)
         => await HttpClient.GetAll(filter);
 }
+*@

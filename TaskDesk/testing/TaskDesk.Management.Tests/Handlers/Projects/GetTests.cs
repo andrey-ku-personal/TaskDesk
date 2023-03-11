@@ -2,7 +2,7 @@
 using TaskDesk.Management.Handlers.Project;
 using TaskDesk.Management.Tests.Fixtures;
 using TaskDesk.Shared.Exceptions;
-using TaskDesk.SharedModel.Project.Models;
+using TaskDesk.SharedModel.Handlers.Project.Models;
 
 namespace TaskDesk.Management.Tests.Handlers.Projects;
 

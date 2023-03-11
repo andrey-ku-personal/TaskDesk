@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using TaskDesk.Management.Blazor.Core.Endpoints.Project;
+using TaskDesk.Management.Blazor.Core.Handlers.Project;
 
 namespace TaskDesk.Management.Blazor.Core;
 
